@@ -23,7 +23,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
         <h1 className="text-2xl">{country.name.common}</h1>
         <p>Population: {country.population}</p>
         <p>Region: {country.region}</p>
-        <p>Capital: {country.capital}</p>
+        {country.capital !== undefined && <p>Capital: {country.capital}</p>}
       </div>
     </Link>
   );

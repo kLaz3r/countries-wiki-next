@@ -39,7 +39,7 @@ const Index = ({ country }: CountryProps) => {
               </div>
               <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
                 <span>Area: </span>
-                <span>{country.area}</span>
+                <span>{country.area} km2</span>
               </div>
               <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
                 <span>Capital: </span>
@@ -71,10 +71,14 @@ const Index = ({ country }: CountryProps) => {
                 <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
                   <span>Languages: </span>
                   <span>
-                    {Object.keys(country.languages).map((key) => {
-                      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                      return `${country.languages[key]} `;
-                    })}
+                    <ul>
+                      {Object.keys(country.languages).map((key) => {
+                        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                        return (
+                          <li className="text-end">{`${country.languages[key]} `}</li>
+                        );
+                      })}
+                    </ul>
                   </span>
                 </div>
               )}
@@ -82,20 +86,22 @@ const Index = ({ country }: CountryProps) => {
                 <span>Landlocked: </span>
                 <span>{country.landlocked ? "Yes" : "No"}</span>
               </div>
-              <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
-                <span>Border Countries: </span>
-                <span className=" flex flex-row gap-1">
-                  {country.borders?.map((border) => (
-                    <Link
-                      className=" rounded-md bg-very-light-gray px-2 py-1 text-dark-blue"
-                      key={border}
-                      href={`/${border}`}
-                    >
-                      {border}
-                    </Link>
-                  ))}
-                </span>
-              </div>
+              {country.borders !== undefined && (
+                <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
+                  <span>Border Countries: </span>
+                  <span className=" flex flex-row flex-wrap justify-end gap-1">
+                    {country.borders?.map((border) => (
+                      <Link
+                        className=" rounded-md bg-very-light-gray px-2 py-1 text-dark-blue"
+                        key={border}
+                        href={`/${border}`}
+                      >
+                        {border}
+                      </Link>
+                    ))}
+                  </span>
+                </div>
+              )}
               {country.demonyms !== undefined && (
                 <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
                   <span>Demonyms: </span>
@@ -120,7 +126,7 @@ const Index = ({ country }: CountryProps) => {
               <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
                 <span>Currencies: </span>
                 <span>
-                  <ul className="flex flex-row">
+                  <ul className="flex flex-row gap-2">
                     {country.currencies !== undefined &&
                       Object.keys(country.currencies).map((key) => {
                         // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
@@ -143,13 +149,14 @@ const Index = ({ country }: CountryProps) => {
               </div>
               <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
                 <span>Top-level Domain: </span>
-                <span>{country.tld?.map((tld) => tld)}</span>
+                <span>{country.tld?.map((tld) => tld + " ")}</span>
               </div>
               {country.coatOfArms.svg !== undefined && (
                 <>
                   <h3 className="py-3 text-center text-2xl">Coat of Arms</h3>
                   <div className="ImageWrapper relative h-56 w-full">
                     <Image
+                      className="object-contain drop-shadow-lg"
                       src={country.coatOfArms.svg}
                       alt={country.name.common}
                       fill
