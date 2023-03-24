@@ -181,11 +181,11 @@ const Home = ({ countries }: HomeProps) => {
               <input
                 type="text"
                 placeholder="Search for a country..."
-                className="w-full bg-dark-blue py-2 px-3"
+                className="mx-auto w-full max-w-lg bg-dark-blue py-2 px-3"
                 onChange={(e) => handleInputChange(e)}
               />
             </div>
-            <div className="grid gap-6 py-6">
+            <div className="grid gap-6 py-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
               {filteredCountries &&
                 filteredCountries.map((country, index) => (
                   <CountryCard key={index} country={country} />

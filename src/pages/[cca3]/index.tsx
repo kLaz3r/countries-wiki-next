@@ -20,16 +20,17 @@ const Index = ({ country }: CountryProps) => {
         <title>{country.name.common}</title>
       </Head>
       <Layout>
-        <div className="Wrapper min-h-screen">
-          <div className="container mx-auto px-6 py-6">
-            <div className="ImageWrapper relative h-56 w-full">
+        <div className="Wrapper min-h-screen w-screen pt-12 lg:pt-0">
+          <div className="container mx-auto items-center px-6 py-6 lg:flex lg:flex-row">
+            <div className="ImageWrapper relative h-56 lg:h-96 lg:w-1/2">
               <Image
                 src={country.flags.svg}
                 alt={country.flags.alt ? country.flags.alt : ""}
+                className="object-contain"
                 fill
               />
             </div>
-            <div className="Info px-3 py-3">
+            <div className="Info mx-auto max-w-lg justify-center px-3 py-3 lg:flex lg:h-screen lg:w-1/2 lg:max-w-none lg:flex-col lg:flex-wrap">
               <h1 className="pb-3 text-center text-2xl">
                 {country.name.official}
               </h1>
@@ -159,7 +160,7 @@ const Index = ({ country }: CountryProps) => {
                 <span>{country.tld?.map((tld) => tld + " ")}</span>
               </div>
               {country.coatOfArms.svg !== undefined && (
-                <>
+                <div className="w-full lg:ml-12 lg:w-auto">
                   <h3 className="py-3 text-center text-2xl">Coat of Arms</h3>
                   <div className="ImageWrapper relative h-56 w-full">
                     <Image
@@ -169,7 +170,7 @@ const Index = ({ country }: CountryProps) => {
                       fill
                     />
                   </div>
-                </>
+                </div>
               )}
             </div>
           </div>

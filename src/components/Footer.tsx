@@ -19,7 +19,7 @@ const Footer = () => {
   }
   return (
     <>
-      <div className="border-t border-very-light-gray bg-dark-blue">
+      <div className="w-full border-t border-very-light-gray bg-dark-blue">
         <div
           className={`${snapClass} container mx-auto flex h-36 flex-col items-center justify-center border-very-light-gray px-6 py-6 md:h-32 md:flex-row md:justify-between`}
         >

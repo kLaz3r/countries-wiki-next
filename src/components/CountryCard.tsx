@@ -11,11 +11,12 @@ const CountryCard = ({ country }: CountryCardProps) => {
   console.log(country);
 
   return (
-    <Link href={`/${country.cca3}`}>
-      <div className="ImageWrapper relative h-56 w-full">
+    <Link className="group overflow-hidden" href={`/${country.cca3}`}>
+      <div className="ImageWrapper relative h-56 w-full transition-all duration-500 ease-in-out group-hover:h-full">
         <Image
           src={country.flags.svg}
           alt={country.flags.alt ? country.flags.alt : ""}
+          className="object-cover"
           fill
         />
       </div>
