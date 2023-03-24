@@ -175,7 +175,7 @@ const Home = ({ countries }: HomeProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className="Wrapper bg-very-dark-blue">
+        <div className="Wrapper bg-very-dark-blue pt-16">
           <div className="container mx-auto min-h-screen px-6">
             <div className="flex w-full flex-row justify-between pt-6">
               <input
