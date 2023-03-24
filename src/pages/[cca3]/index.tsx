@@ -20,8 +20,8 @@ const Index = ({ country }: CountryProps) => {
         <title>{country.name.common}</title>
       </Head>
       <Layout>
-        <div className="Wrapper min-h-screen w-screen pt-12 lg:pt-0">
-          <div className="container mx-auto items-center px-6 py-6 lg:flex lg:flex-row">
+        <div className="Wrapper min-h-screen pt-16 lg:pt-0">
+          <div className="container mx-auto items-center px-6 py-16 lg:flex lg:flex-row ">
             <div className="ImageWrapper relative h-56 lg:h-96 lg:w-1/2">
               <Image
                 src={country.flags.svg}
@@ -30,8 +30,8 @@ const Index = ({ country }: CountryProps) => {
                 fill
               />
             </div>
-            <div className="Info mx-auto max-w-lg justify-center px-3 py-3 lg:flex lg:h-screen lg:w-1/2 lg:max-w-none lg:flex-col lg:flex-wrap">
-              <h1 className="pb-3 text-center text-2xl">
+            <div className="Info mx-auto max-w-lg justify-center gap-6 px-3 py-3 lg:grid lg:h-screen lg:w-1/2 lg:max-w-none lg:grid-cols-2 lg:flex-wrap">
+              <h1 className="pb-3 text-center text-2xl lg:text-4xl">
                 {country.name.official}
               </h1>
               <div className="slice flex flex-row items-center justify-between border-b border-dashed border-dark-gray py-2">
