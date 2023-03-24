@@ -73,9 +73,16 @@ const Index = ({ country }: CountryProps) => {
                   <span>
                     <ul>
                       {Object.keys(country.languages).map((key) => {
-                        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                        if (country.languages === undefined) return;
+
+                        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                        const language = country.languages[key]!;
+
                         return (
-                          <li className="text-end">{`${country.languages[key]} `}</li>
+                          <li
+                            key={key}
+                            className="text-end"
+                          >{`${language} `}</li>
                         );
                       })}
                     </ul>
