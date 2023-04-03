@@ -18,6 +18,7 @@ const Index = ({ country }: CountryProps) => {
     <>
       <Head>
         <title>{country.name.common}</title>
+        <meta name="description" content="A Simple Countries Wiki App" />
       </Head>
       <Layout>
         <div className="Wrapper min-h-screen pt-16 lg:pt-0">
@@ -161,7 +162,7 @@ const Index = ({ country }: CountryProps) => {
               </div>
               {country.coatOfArms.svg !== undefined && (
                 <div className="w-full lg:ml-12 lg:w-auto">
-                  <h3 className="py-3 text-center text-2xl">Coat of Arms</h3>
+                  <h2 className="py-3 text-center text-2xl">Coat of Arms</h2>
                   <div className="ImageWrapper relative h-56 w-full">
                     <Image
                       className="object-contain drop-shadow-lg"
