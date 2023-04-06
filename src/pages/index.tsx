@@ -1,6 +1,5 @@
 import axios from "axios";
 import Head from "next/head";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import CountryCard from "~/components/CountryCard";
 import Layout from "../components/Layout";
